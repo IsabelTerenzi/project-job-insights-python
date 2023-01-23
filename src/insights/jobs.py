@@ -17,21 +17,14 @@ def read(path: str) -> List[Dict]:
 
 
 def get_unique_job_types(path: str) -> List[str]:
-    """Checks all different job types and returns a list of them
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    raise NotImplementedError
+    # a função deve receber o path do arquivo csv
+    types = read(path)
+    # a função deve invocar a função jobs.read com o path
+    types_set = set()
+    for value in types:
+        types_set.add(value['job_type'])
+    # a função deve retornar uma lista de valores da coluna job_type
+    return list(types_set)
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
