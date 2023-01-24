@@ -22,7 +22,7 @@ def get_min_salary(path: str) -> int:
         if value["min_salary"] != '' and value["min_salary"] != 'invalid':
             # a função deve ignorar os valores ausentes
             salaries_set.add(int(value["min_salary"]))
-            # retornar um int com o maior salário da coluna max_salary
+            # retornar um int com o menor salário da coluna min_salary
     return min(salaries_set)
 
 
