@@ -1,40 +1,29 @@
 from typing import Union, List, Dict
+from src.insights.jobs import read
 
 
 def get_max_salary(path: str) -> int:
-    """Get the maximum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    raise NotImplementedError
+    salaries = read(path)
+    # A função deve obter os dados da mesma forma que o requisito 2
+    salaries_set = set()
+    for value in salaries:
+        if value["max_salary"] != '' and value["max_salary"] != 'invalid':
+            # a função deve ignorar os valores ausentes
+            salaries_set.add(int(value["max_salary"]))
+            # retornar um int com o maior salário da coluna max_salary
+    return max(salaries_set)
 
 
 def get_min_salary(path: str) -> int:
-    """Get the minimum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    raise NotImplementedError
+    salaries = read(path)
+    # A função deve obter os dados da mesma forma que o requisito 2
+    salaries_set = set()
+    for value in salaries:
+        if value["min_salary"] != '' and value["min_salary"] != 'invalid':
+            # a função deve ignorar os valores ausentes
+            salaries_set.add(int(value["min_salary"]))
+            # retornar um int com o maior salário da coluna max_salary
+    return min(salaries_set)
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:

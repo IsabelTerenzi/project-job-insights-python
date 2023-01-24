@@ -9,7 +9,7 @@ def get_unique_industries(path: str) -> List[str]:
         if value['industry'] != '':
             # a função desconsidera valores vazios
             industries_set.add(value["industry"])
-            # retornar uma lista de valores da coluna industry
+            # a função deve retornar uma lista de valores da coluna industry
     return list(industries_set)
 
 
