@@ -14,18 +14,12 @@ def get_unique_industries(path: str) -> List[str]:
 
 
 def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
-    """Filters a list of jobs by industry
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    raise NotImplementedError
+    # A função recebe uma lista de dicionários como primeiro parâmetro
+    # A função recebe uma string industry como segundo parâmetro
+    industries_list = list()
+    for value in jobs:
+        if value["industry"] == industry:
+            industries_list.append(value)
+        # deve retornar uma lista da coluna industry
+        # correspondente ao parâmetro industry
+    return industries_list
